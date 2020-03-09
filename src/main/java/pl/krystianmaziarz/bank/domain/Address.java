@@ -13,8 +13,6 @@ public class Address {
     private String street;
     private String number;
     private String zipcode;
-    @OneToOne
-    private User user;
 
     public Address() {
     }
@@ -66,11 +64,4 @@ public class Address {
         this.zipcode = zipcode;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

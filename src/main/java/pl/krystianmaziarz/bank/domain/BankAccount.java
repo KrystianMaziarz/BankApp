@@ -8,8 +8,6 @@ public class BankAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
-    @OneToOne
-    private User user;
     private Long balance;
 
     public BankAccount() {
@@ -27,13 +25,6 @@ public class BankAccount {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Long getBalance() {
         return balance;

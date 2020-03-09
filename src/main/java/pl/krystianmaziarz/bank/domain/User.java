@@ -23,9 +23,9 @@ public class User {
     @Column(name = "płeć")
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @OneToOne (cascade = CascadeType.PERSIST)
+    @OneToOne (cascade = CascadeType.DETACH)
     private BankAccount bankAccount;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.DETACH)
     private Address address;
 
     public User() {
