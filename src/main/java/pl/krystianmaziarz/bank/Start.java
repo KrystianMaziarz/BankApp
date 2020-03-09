@@ -28,9 +28,9 @@ public class Start {
 
     @EventListener(ApplicationReadyEvent.class)
     public void runExample() {
-        BankAccount janAccount = new BankAccount(0L);
+   /* *//*    BankAccount janAccount = new BankAccount(0L);
         BankAccount dawidAccount = new BankAccount(0L);
-        BankAccount janinaAccount = new BankAccount(0L);
+        BankAccount janinaAccount = new BankAccount(0L);*//*
 
         bankAccountRepo.save(janAccount);
         bankAccountRepo.save(dawidAccount);
@@ -55,7 +55,7 @@ public class Start {
         userRepo.save(dawid);
         userRepo.save(janina);
 
-
+*/
 
     }
 

@@ -1,9 +1,10 @@
 package pl.krystianmaziarz.bank.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Address {
+public class Address  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

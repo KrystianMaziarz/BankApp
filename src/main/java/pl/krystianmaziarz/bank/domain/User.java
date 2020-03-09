@@ -1,12 +1,14 @@
 package pl.krystianmaziarz.bank.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import pl.krystianmaziarz.bank.domain.enums.Gender;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class User {
+public class User  {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -18,14 +20,15 @@ public class User {
     @Column (name = "mail")
     private String email;
     private String password;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     @Column(name = "dataUrodzenia")
     private LocalDate dateOfBirthday;
     @Column(name = "płeć")
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @OneToOne (cascade = CascadeType.DETACH)
+    @OneToOne (cascade = CascadeType.ALL)
     private BankAccount bankAccount;
-    @OneToOne(cascade = CascadeType.DETACH)
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
     public User() {

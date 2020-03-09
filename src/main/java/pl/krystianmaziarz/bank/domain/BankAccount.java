@@ -1,36 +1,26 @@
 package pl.krystianmaziarz.bank.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BankAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
+    private String iban;
+    private boolean isActive;
     private Long balance;
+    @OneToOne
+    private User user;
 
-    public BankAccount() {
-    }
-
-    public BankAccount(Long balance) {
-        this.balance = balance;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
-    public Long getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Long balance) {
-        this.balance = balance;
-    }
 }
+
+
