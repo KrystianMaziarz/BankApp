@@ -8,7 +8,6 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class BankAccount {
 
@@ -21,6 +20,11 @@ public class BankAccount {
     @OneToOne
     private User user;
 
+    public BankAccount(String iban, boolean isActive, Long balance) {
+        this.iban = iban;
+        this.isActive = isActive;
+        this.balance = balance;
+    }
 }
 
 

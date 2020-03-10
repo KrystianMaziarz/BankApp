@@ -19,8 +19,8 @@ public class UserController {
     }
 
     @GetMapping("/all")
+    @CrossOrigin
     public List<User> findAll(){
-
     return userServiceImpl.findAll();
 
     }
@@ -30,7 +30,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/findbyemail")
+    @GetMapping("/email")
     public HttpEntity<User> findByMail (@RequestParam String email){
         return ResponseEntity.ok (userServiceImpl.findByEmail(email));
 
@@ -39,7 +39,9 @@ public class UserController {
     public void deleteById (Long id){
         userServiceImpl.deleteById(id);
     }
+
     @PostMapping
+    @CrossOrigin
     public void addUser (@RequestBody User user){
        userServiceImpl.addUser(user);
 

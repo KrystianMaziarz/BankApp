@@ -1,0 +1,81 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+
+      <div class="form-group">
+        <label for="name">Imię</label>
+        <input type="text" [(ngModel)]="user.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter your name"
+               required #name="ngModel">
+      <div [hidden]="!name.pristine" class="alert alert-danger">Imię jest wymagane</div>
+      </div>
+
+      <div class="form-group">
+        <label for="surname">Nazwisko</label>
+        <input type="text" [(ngModel)]="user.surname"
+               class="form-control"
+               id="surname"
+               name="surname"
+               placeholder="Enter your surname"
+               required #surname="ngModel">
+        <div [hidden]="!surname.pristine" class="alert alert-danger">Nazwisko jest wymagane</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" [(ngModel)]="user.email"
+               class="form-control"
+               id="email"
+               name="email"
+               placeholder="Enter your email address"
+               required #email="ngModel">
+        <div [hidden]="!email.pristine" class="alert alert-danger">Email jest wymagany</div>
+      </div>
+
+      <div class="form-group">
+        <label for="birthday">Data Urodzenia</label>
+        <input type="date" [(ngModel)]="user.dateOfBirthday"
+               class="form-control"
+               id="birthday"
+               name="birthday"
+               placeholder="Enter your birtday"
+               required #birthday="ngModel">
+        <div [hidden]="!birthday.pristine" class="alert alert-danger">Pole jest wymagane</div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Płeć</label>
+      <select  type="text" [(ngModel)]="user.gender"
+               class="form-control"
+               id="gender"
+               name="gender"
+               required #gender="ngModel">
+        <option [ngValue]="null" >Wybierz</option>
+        <option [ngValue]="Gender.FEMALE" >Kobieta</option>
+        <option [ngValue]="Gender.MALE" >Mężczyzna</option>
+        <option [ngValue]="Gender.KID" >Dziecko</option>
+      </select>
+        <div [hidden]="!gender.pristine" class="alert alert-danger">Pole jest wymagane</div>
+      </div>
+
+      <div class="form-group">
+        <label for="account">Nr konta</label>
+        <input type="text" [(ngModel)]="user.bankAccount.iban"
+               class="form-control"
+               id="account"
+               name="account"
+               placeholder="Enter your account"
+               required #birthday="ngModel">
+        <div [hidden]="!birthday.pristine" class="alert alert-danger">Pole jest wymagane</div>
+      </div>
+
+
+
+      <button type="submit" [disabled]="!userForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

@@ -1,11 +1,14 @@
 package pl.krystianmaziarz.bank.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.krystianmaziarz.bank.domain.enums.Gender;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class User  {
@@ -20,7 +23,7 @@ public class User  {
     @Column (name = "mail")
     private String email;
     private String password;
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "dataUrodzenia")
     private LocalDate dateOfBirthday;
     @Column(name = "płeć")

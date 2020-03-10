@@ -10,6 +10,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import pl.krystianmaziarz.bank.domain.User;
+import pl.krystianmaziarz.bank.repositories.AddressRepo;
+import pl.krystianmaziarz.bank.repositories.BankAccountRepo;
 import pl.krystianmaziarz.bank.repositories.UserRepo;
 
 import java.util.ArrayList;
@@ -21,12 +23,16 @@ public class UserServiceImplTest {
 
     @Mock
     private UserRepo userRepo;
+    @Mock
+    private BankAccountRepo bankAccountRepo;
+    @Mock
+    private AddressRepo addressRepo;
 
     private UserServiceImpl userServiceImpl;
 
     @Before
     public void setUp() throws Exception {
-        userServiceImpl = new UserServiceImpl(userRepo);
+        userServiceImpl = new UserServiceImpl(userRepo,bankAccountRepo,addressRepo);
     }
     @Test
     public void testShouldFindAllUsers() {

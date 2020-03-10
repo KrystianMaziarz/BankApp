@@ -1,0 +1,30 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Lp.</th>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Data urodzenia</th>
+        <th scope="col">Płeć</th>
+        <th scope="col">Nr konta</th>
+        <th scope="col">Saldo</th>
+        <th scope="col">Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.surname}}</td>
+        <td>{{ user.dateOfBirthday | date:'dd-MM-yyyy'}}</td>
+        <td>{{ user.gender}}</td>
+        <td>{{ user.bankAccount.iban}}</td>
+        <td>{{ user.bankAccount.balance}}</td>
+        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
